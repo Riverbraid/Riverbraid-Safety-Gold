@@ -5,6 +5,11 @@
 
 Responsible for real-time alignment and the detection of frequency distortion (AI-Generic tone).
 
+## 🏛️ About and Topics
+Description: Protocol integrity and entropy scanning petal for the Riverbraid Gold Cluster. Real-time alignment filter — blocks AI-Generic distortion.
+
+Topics: safety, entropy, alignment, deterministic, governance, riverbraid, gold-cluster
+
 ### Core Invariant
 * **ALIGNMENT_FILTER**: Blocks any payload containing illicit entropy or standard assistant markers.
 
