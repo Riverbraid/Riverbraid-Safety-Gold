@@ -1,0 +1,15 @@
+{
+  "version": "1.1.0",
+  "merkle_root": "de2062",
+  "gpg_fingerprint": "D9475D6B717D0E6C8EC84F6D8F86D9F4F2B083A4",
+  "petals": [
+    "Core", "Golds", "Crypto-Gold", "Judicial-Gold", 
+    "Memory-Gold", "Integration-Gold", "Harness-Gold",
+    "Refusal-Gold", "Safety-Gold"
+  ],
+  "invariants": {
+    "entropy": "dS/dt = 0",
+    "coupling": "isolated_predicate_passing",
+    "governance": "fail_closed"
+  }
+}

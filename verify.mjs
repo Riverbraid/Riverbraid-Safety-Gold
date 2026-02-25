@@ -1,22 +1,24 @@
-import { readFileSync } from 'fs';
-import { dirname, join } from 'path';
-import { fileURLToPath } from 'url';
+import fs from "node:fs";
+import path from "node:path";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
+const fatal = (msg) => { console.error(`VERIFY FAILED: ${msg}`); process.exit(1); };
+const readJSON = (p) => JSON.parse(fs.readFileSync(p, "utf8"));
 
-try {
-    const readmePath = join(__dirname, 'README.md');
-    const readme = readFileSync(readmePath, 'utf8');
-    
-    // Check for the universal signal marker we injected
-    if (readme.includes('[Signal:')) {
-        console.log("✅ Stationary State Verified.");
-        process.exit(0);
-    } else {
-        console.error("❌ Invariant Drift: Signal missing in README.");
-        process.exit(1);
+const root = process.cwd();
+const contractPath = path.join(root, "identity.contract.json");
+if (!fs.existsSync(contractPath)) fatal("Missing identity.contract.json");
+const contract = readJSON(contractPath);
+
+const forbidden = ["Date.now", "Math.random", "randomUUID", "new Date(", "performance.now", "process.env"];
+
+for (const rel of contract.governed_files) {
+  const full = path.join(root, rel);
+  if (!fs.existsSync(full)) fatal(`Missing governed file: ${rel}`);
+  if (rel.endsWith(".js") || rel.endsWith(".mjs") || rel.endsWith(".json")) {
+    const content = fs.readFileSync(full, "utf8");
+    for (const tok of forbidden) {
+      if (content.includes(tok)) fatal(`Forbidden token in ${rel}: ${tok}`);
     }
-} catch (e) {
-    console.error(`❌ Execution Error: ${e.message}`);
-    process.exit(1);
+  }
 }
+console.log("STATUS: INSTITUTIONAL GRADE LOCKED");
