@@ -1,13 +1,13 @@
-# ⚓ Riverbraid-Safety-Gold
+#  Riverbraid-Safety-Gold
 # git push -u origin mainttps://github.com/Riverbraid/Riverbraid-Safety-Gold.gitons do not violate the Stationary State Invariant.
 [main e3745d4] feat: initial petal anchor for Refusal-Gold
  2 files changed, 8 insertions(+), 10 deletions(-)
 Reinitialized existing Git repository in /workspaces/Riverbraid-Safety-Gold/.git/
 [main bcc8e0a] feat: initial petal anchor for Safety-Gold
  2 files changed, 8 insertions(+), 10 deletions(-)
-@Riverbraid ➜ /workspaces/Riverbraid-Safety-Gold (main) $ cd /workspaces/.github
+@Riverbraid  /workspaces/Riverbraid-Safety-Gold (main) $ cd /workspaces/.github
 cat > profile/RESEARCH_SPEC.md << 'EOF'
-# 🔬 Final Research Specification: Gold Cluster v1.1.0
+#  Final Research Specification: Gold Cluster v1.1.0
 
 ### 1. The Coupling Test
 Direct coupling between petals is strictly prohibited. Communication occurs only via **Stationary State Invariants**. If a state change in Petal A requires a non-deterministic shift in Petal B, the gate fails-closed.
