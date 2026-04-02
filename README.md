@@ -9,3 +9,10 @@
 
 ## Invariants
 Refer to [SPEC.md](./SPEC.md) for the Thermodynamic Signals and Coupling Tests.
+
+---
+## Riverbraid Ecosystem
+- **Core Framework**: [Riverbraid-Core](https://github.com/Riverbraid/Riverbraid-Core)
+- **Ecosystem Index**: [Riverbraid-Manifest-Gold](https://github.com/Riverbraid/Riverbraid-Manifest-Gold)
+
+## Keywords
