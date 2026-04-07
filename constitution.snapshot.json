@@ -1,0 +1,65 @@
+[
+  {
+    "file": ".anchor"
+  },
+  {
+    "file": ".github/workflows/integrity.yml"
+  },
+  {
+    "file": ".github/workflows/merkle-verify.yml"
+  },
+  {
+    "file": ".stationary_state"
+  },
+  {
+    "file": "CLUSTER_MANIFEST.state"
+  },
+  {
+    "file": "CONTRIBUTING.md"
+  },
+  {
+    "file": "LICENSE"
+  },
+  {
+    "file": "MANIFEST.SEAL.sha256"
+  },
+  {
+    "file": "README.md"
+  },
+  {
+    "file": "SECURITY.md"
+  },
+  {
+    "file": "TRUTH.SEAL.sha256"
+  },
+  {
+    "file": "heartbeat.mjs"
+  },
+  {
+    "file": "index.js"
+  },
+  {
+    "file": "protocol.steps"
+  },
+  {
+    "file": "run-vectors.cjs"
+  },
+  {
+    "file": "scanner.py"
+  },
+  {
+    "file": "scripts/generate-repro-manifest.cjs"
+  },
+  {
+    "file": "swarm_anchor.txt"
+  },
+  {
+    "file": "utils/canonical.cjs"
+  },
+  {
+    "file": "verify.mjs"
+  },
+  {
+    "file": "verify.py"
+  }
+]
