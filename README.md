@@ -1,6 +1,6 @@
 # Riverbraid-$petal
 **Part of the Riverbraid Petal Cluster**
-- **Merkle Root:** de2062
+- **Merkle Root:** adef13
 - **Status:** Stationary / Fail-Closed
 
 ## The Braid
