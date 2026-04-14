@@ -1,10 +1,9 @@
 {
-  "name": "riverbraid-safety-gold",
-  "version": "1.5.0",
+  "name": "Riverbraid-Safety-Gold",
+  "version": "1.5.1",
   "private": true,
-  "type": "commonjs",
+  "type": "module",
   "scripts": {
-    "snapshot": "node run-vectors.cjs snapshot",
     "verify": "node run-vectors.cjs verify"
   }
 }
