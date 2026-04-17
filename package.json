@@ -1,20 +1,13 @@
 {
-  "name": "Riverbraid-Safety-Gold",
-  "version": "1.5.1",
-  "lockfileVersion": 3,
-  "requires": true,
-  "packages": {
-    "": {
-      "name": "Riverbraid-Safety-Gold",
-      "version": "1.5.1",
-      "license": "ISC",
-      "engines": {
-        "node": "20.11.0",
-        "npm": "10.2.4"
-      }
-    }
-  },
+  "name": "@riverbraid/riverbraid-safety-gold",
+  "version": "1.5.0",
+  "private": true,
+  "type": "commonjs",
   "scripts": {
-    "test": "echo 'Stationary Integrity Verified' && exit 0"
+    "verify": "node run-vectors.cjs verify",
+    "test": "node run-vectors.cjs verify"
+  },
+  "engines": {
+    "node": "24.11.1"
   }
 }
