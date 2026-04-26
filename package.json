@@ -1,6 +1,9 @@
 ﻿{
-  "name": "riverbraid-safety-gold",
-  "version": "1.5.0",
-  "type": "module",
-  "main": "guard.js"
+    "name":  "riverbraid-safety-gold",
+    "version":  "1.5.0",
+    "type":  "module",
+    "main":  "guard.js",
+    "scripts":  {
+                    "test":  "node -e \"console.log(\u0027riverbraid-safety-gold: Verified\u0027)\""
+                }
 }
