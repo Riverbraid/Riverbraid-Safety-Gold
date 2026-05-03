@@ -1,3 +1,12 @@
-STEP_1: ENTROPY_SCAN
-STEP_2: COHERENCE_CHECK
-STEP_3: SYSTEM_REST
+{
+    "claim_boundary":  "declared-conditions-only",
+    "ring":  1,
+    "invariant":  "SAFETY_FLOOR_STATIONARY",
+    "repo":  "Riverbraid-Safety-Gold",
+    "steps":  [
+                  "declare-invariant",
+                  "check-required-files",
+                  "check-determinism-surface",
+                  "emit-verify-output"
+              ]
+}
