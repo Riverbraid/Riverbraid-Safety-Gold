@@ -1,0 +1,22 @@
+{
+  "repo": "Riverbraid-Safety-Gold",
+  "ring": 1,
+  "invariant": "SAFETY_FLOOR_STATIONARY",
+  "status": "VERIFIED",
+  "verification_scope": "ring1-file-surface-and-determinism-scan",
+  "claim_boundary": "declared-conditions-only",
+  "required_files": [
+    "verify.mjs",
+    "index.js",
+    "protocol.steps",
+    "package.json",
+    "AUTHORITY.md",
+    "RING.md"
+  ],
+  "missing_files": [],
+  "protocol_valid": true,
+  "index_exports_verify": true,
+  "deterministic_surface_ok": true,
+  "failure_codes": [],
+  "digest": "sha256:5a5111aee0b9d8f2e1ce1b7fbd60ee848783ad9a3ae58eee03fd73356e05720f"
+}
