@@ -2,7 +2,7 @@
 repo: Riverbraid-Safety-Gold
 ring: 1
 ring_name: Gold Petals
-phase: Phase 15
+phase: Phase 19
 promotion_state: CLASSIFIED
 petal: Safety-Gold
 invariant: SAFETY_FLOOR_STATIONARY

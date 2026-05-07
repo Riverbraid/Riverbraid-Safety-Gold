@@ -1,9 +1,14 @@
-﻿{
-    "name":  "riverbraid-safety-gold",
-    "version":  "1.5.0",
-    "type":  "module",
-    "main":  "guard.js",
-    "scripts":  {
-                    "test":  "node -e \"console.log(\u0027riverbraid-safety-gold: Verified\u0027)\""
-                }
+{
+  "name": "@riverbraid/safety-gold",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "node verify.mjs",
+    "test:legacy": "node -e \"console.log('riverbraid-safety-gold: Verified')\"",
+    "verify": "node verify.mjs"
+  },
+  "private": true,
+  "description": "Riverbraid Gold petal for deterministic stationarity verification.",
+  "license": "MIT"
 }

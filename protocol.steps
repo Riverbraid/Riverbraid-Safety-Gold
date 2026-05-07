@@ -1,12 +1,33 @@
 {
-    "claim_boundary":  "declared-conditions-only",
-    "ring":  1,
-    "invariant":  "SAFETY_FLOOR_STATIONARY",
-    "repo":  "Riverbraid-Safety-Gold",
-    "steps":  [
-                  "declare-invariant",
-                  "check-required-files",
-                  "check-determinism-surface",
-                  "emit-verify-output"
-              ]
+  "schema": "riverbraid.gold.protocol.steps",
+  "version": "1.0.0",
+  "repo": "Riverbraid-Safety-Gold",
+  "ring": 1,
+  "petal": "Safety-Gold",
+  "invariant": "SAFETY_FLOOR_STATIONARY",
+  "claim_boundary": "declared-conditions-only",
+  "canonical_input": {
+    "repo": "Riverbraid-Safety-Gold",
+    "petal": "Safety-Gold",
+    "ring": 1,
+    "invariant": "SAFETY_FLOOR_STATIONARY"
+  },
+  "expected_result": true,
+  "steps": [
+    "receive canonical stationarity object",
+    "require repo to equal Riverbraid-Safety-Gold",
+    "require petal to equal Safety-Gold",
+    "require ring to equal 1",
+    "require invariant to equal SAFETY_FLOOR_STATIONARY",
+    "emit deterministic verification output"
+  ],
+  "forbidden": [
+    "Date",
+    "Math.random",
+    "randomUUID",
+    "timestamps",
+    "absolute paths",
+    "environment dependent values",
+    "external lookups"
+  ]
 }
