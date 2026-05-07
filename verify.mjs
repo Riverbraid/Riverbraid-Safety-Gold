@@ -1,89 +1,25 @@
-import fs from "node:fs";
-import crypto from "node:crypto";
-const repo = "Riverbraid-Safety-Gold";
-const invariant = "SAFETY_FLOOR_STATIONARY";
-const requiredFiles = [
-  "verify.mjs",
-  "index.js",
-  "protocol.steps",
-  "package.json",
-  "AUTHORITY.md",
-  "RING.md"
-];
-function join(parts) {
-  return parts.join("");
-}
-const missing = requiredFiles.filter((file) => !fs.existsSync(file));
-let protocolOk = false;
-let indexExportsVerify = false;
-let deterministicSurfaceOk = false;
-let failureCodes = [];
-if (missing.length > 0) {
-  failureCodes.push("REQUIRED_FILES_MISSING");
-}
-try {
-  const protocol = JSON.parse(fs.readFileSync("protocol.steps", "utf8").replace(/^\uFEFF/, ""));
-  protocolOk =
-    protocol.invariant === invariant &&
-    Array.isArray(protocol.steps) &&
-    protocol.steps.length > 0;
-  if (!protocolOk) {
-    failureCodes.push("PROTOCOL_STEPS_INVALID");
-  }
-} catch {
-  failureCodes.push("PROTOCOL_STEPS_PARSE_FAILED");
-}
-try {
-  const index = fs.readFileSync("index.js", "utf8");
-  indexExportsVerify =
-    index.includes("export function verify") ||
-    index.includes("export { verify") ||
-    (index.includes("module.exports") && index.includes("verify"));
-  const banned = [
-    join(["Date", ".", "now"]),
-    join(["new", " ", "Date"]),
-    join(["Math", ".", "random"]),
-    join(["crypto", ".", "random", "UUID"]),
-    join(["random", "UUID"])
-  ];
-  deterministicSurfaceOk = banned.every((term) => !index.includes(term));
-  if (!indexExportsVerify) {
-    failureCodes.push("INDEX_VERIFY_EXPORT_MISSING");
-  }
-  if (!deterministicSurfaceOk) {
-    failureCodes.push("NONDETERMINISTIC_SURFACE_DETECTED");
-  }
-} catch {
-  failureCodes.push("INDEX_READ_FAILED");
-}
-const ok =
-  missing.length === 0 &&
-  protocolOk &&
-  indexExportsVerify &&
-  deterministicSurfaceOk;
-const hash = crypto.createHash("sha256");
-for (const file of requiredFiles) {
-  if (fs.existsSync(file)) {
-    hash.update(file);
-    hash.update("\0");
-    hash.update(fs.readFileSync(file));
-    hash.update("\0");
-  }
-}
+import { readFileSync, writeFileSync } from "fs";
+import { verify } from "./index.js";
+const protocol = JSON.parse(readFileSync("protocol.steps", "utf8"));
+const input = protocol.canonical_input;
+const expectedResult = protocol.expected_result;
+const result = verify(input);
 const output = {
-  repo,
+  schema: "riverbraid.gold.verify.output",
+  version: "1.0.0",
+  repo: "Riverbraid-Safety-Gold",
   ring: 1,
-  invariant,
-  status: ok ? "VERIFIED" : "FILES_PRESENT_UNVERIFIED",
-  verification_scope: "ring1-file-surface-and-determinism-scan",
-  claim_boundary: "declared-conditions-only",
-  required_files: requiredFiles,
-  missing_files: missing,
-  protocol_valid: protocolOk,
-  index_exports_verify: indexExportsVerify,
-  deterministic_surface_ok: deterministicSurfaceOk,
-  failure_codes: ok ? [] : failureCodes,
-  digest: "sha256:" + hash.digest("hex")
+  petal: "Safety-Gold",
+  invariant: "SAFETY_FLOOR_STATIONARY",
+  status: result.pass === true && result.stationary === expectedResult ? "VERIFIED" : "FAILED",
+  result: result.stationary,
+  expected_result: expectedResult,
+  canonical_signal: result.signal,
+  canonical_reason: result.reason
 };
-fs.writeFileSync("verify-output.json", JSON.stringify(output, null, 2));
-process.exit(0);
+writeFileSync("verify-output.json", JSON.stringify(output, null, 2) + "\n", "utf8");
+if (output.status !== "VERIFIED") {
+  console.error("SAFETY_GOLD_VERIFICATION_FAILED");
+  process.exit(1);
+}
+console.log("SAFETY_GOLD_VERIFICATION_SUCCESS");

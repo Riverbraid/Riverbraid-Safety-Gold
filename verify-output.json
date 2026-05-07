@@ -1,22 +1,13 @@
 {
+  "schema": "riverbraid.gold.verify.output",
+  "version": "1.0.0",
   "repo": "Riverbraid-Safety-Gold",
   "ring": 1,
+  "petal": "Safety-Gold",
   "invariant": "SAFETY_FLOOR_STATIONARY",
   "status": "VERIFIED",
-  "verification_scope": "ring1-file-surface-and-determinism-scan",
-  "claim_boundary": "declared-conditions-only",
-  "required_files": [
-    "verify.mjs",
-    "index.js",
-    "protocol.steps",
-    "package.json",
-    "AUTHORITY.md",
-    "RING.md"
-  ],
-  "missing_files": [],
-  "protocol_valid": true,
-  "index_exports_verify": true,
-  "deterministic_surface_ok": true,
-  "failure_codes": [],
-  "digest": "sha256:9b827e7f8bb0302e4394df5822a8abf5ed6fe24d5613928100d8ceb3b3eed964"
+  "result": true,
+  "expected_result": true,
+  "canonical_signal": "safety-gold:STATIONARY",
+  "canonical_reason": "Stationary fields match declared petal identity"
 }
