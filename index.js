@@ -1,5 +1,10 @@
-export const PETAL = "Safety-Gold";
-export const INVARIANT = "SAFETY_FLOOR_STATIONARY";
+export const name = "Riverbraid-Safety-Gold";
+export const petal = "Safety-Gold";
+export const version = "1.0.0";
+export const ring = 1;
+export const invariant = "SAFETY_FLOOR_STATIONARY";
+export const status = "STATIONARY";
+export const claim_boundary = "declared-conditions-only";
 export function verify(input) {
   if (!input || typeof input !== "object") {
     return {

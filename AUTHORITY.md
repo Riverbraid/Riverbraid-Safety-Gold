@@ -1,6 +1,4 @@
-# Riverbraid-Safety-Gold Authority
-Ring: 1
-Role: Gold Petal
+# Authority Document
 Petal: Safety-Gold
 Invariant: SAFETY_FLOOR_STATIONARY
 Status: CLASSIFIED
